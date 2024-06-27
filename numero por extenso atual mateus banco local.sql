@@ -138,8 +138,10 @@ begin
 				set extenso := numeros(valorUnidade);
 			elseif (valorDezena and not valorUnidade) then
 				set extenso := dezena(valorDezena);
-			else
-				set extenso := concat(extenso, " e ", unidade(valorUnidade));
+			elseif valorDezena > 0 and valorUnidade > 0 then
+				set extenso := concat(dezena(valorDezena), " e ", unidade(valorUnidade));
+			/*else
+				set extenso := concat(extenso, " e ", unidade(valorUnidade));*/
 			end if; 
             
             if (not valorDezena and valorUnidade = 1) then
